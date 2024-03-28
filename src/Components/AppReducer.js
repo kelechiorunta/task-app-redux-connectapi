@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, ADDTOLIST, REMOVEITEM, INITIATE } from "../Objects/ActionObjs";
+import { INCREMENT, DECREMENT, ADDTOLIST, REMOVEITEM, INITIATE, ADDBYTASK } from "../Objects/ActionObjs";
 
 const initialState = {
     value:0, tasks:[], selectedtask:[],
@@ -19,6 +19,11 @@ export const AppReducer = (state=initialState, action) =>{
                     case REMOVEITEM:{
                         const { id } = action.payload;
                         return {...state, tasks:[...state.tasks.filter(t=>t.id !== id)], selectedtask:[...state.selectedtask, ...state.tasks.filter(t=>t.id === id)]}
+                    }
+                    case ADDBYTASK:{
+                        const { task } = action.payload;
+                        const { id, content, completed } = task;
+                        return {...state, tasks:[...state.tasks, {id, content, completed}], selectedtask:[...state.selectedtask.filter(t=>t.id !== id)]}
                     }
                     case INITIATE:{
                         return state//{...state, tasks:[...state.tasks], selectedtask:[...state.selectedtask]}
