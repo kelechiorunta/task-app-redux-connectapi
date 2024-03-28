@@ -16,4 +16,4 @@ const mapStateToProps = (state) =>{
     return { completedtask: state.selectedtask }
 }
 
-export default connect(mapStateToProps, { removeitem })(AppCheckComplete)
+export default connect(null, { removeitem })(AppCheckComplete)
