@@ -11,6 +11,7 @@ function Header() {
     height={'100px'}
     position={'sticky'}
     top={'0'}
+    zIndex={'5'}
     bg={'blue.500'}
     color={'white'}>
         <Box>
