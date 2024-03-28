@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addtolist } from '../Objects/ActionObjs'
 import AppCheckComplete from './AppCheckComplete'
+import { sortlist } from '../Selectors/SortList'
 
-function AppAddToList({tasks, selectedtask, addtolist}) {
+function AppAddToList({alltasks, selectedtask, addtolist}) {
 
     const [info, setInfo] = useState('')
 
@@ -19,7 +20,7 @@ function AppAddToList({tasks, selectedtask, addtolist}) {
         <Input type='text' placeholder="Enter Task Here" onChange={(e) => setInfo(e.target.value)} value={info} />
         <Button onClick={handleAdd}>Add To List</Button>
         <UnorderedList>
-            {tasks.map(i=>{
+            {alltasks.map(i=>{
                 return (
                         <ListItem key={`key${i.id}`} textAlign={'left'}>
                             
@@ -38,6 +39,7 @@ function AppAddToList({tasks, selectedtask, addtolist}) {
 }
 const mapStateToProps = (state) =>{
     const {tasks , selectedtask} = state
-    return {tasks, selectedtask}
+    const sortedlist = sortlist(state)//tasks.sort((a,b)=>a.id - b.id)//sortlist(tasks)
+    return {alltasks: sortedlist}
 }
 export default connect(mapStateToProps, { addtolist })(AppAddToList)
