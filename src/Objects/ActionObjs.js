@@ -3,6 +3,7 @@ export const DECREMENT = 'DECREMENT'
 export const ADDTOLIST = 'ADDTOLIST'
 export const REMOVEITEM = 'REMOVEITEM'
 export const INITIATE = 'INITIATE'
+export const ADDBYTASK = 'ADDBYTASK'
 
 let nextid = 0;
 
@@ -21,6 +22,11 @@ export const addtolist = (content) => ({
     }
 })
 
+export const addbytask = (task) => ({
+    type:ADDBYTASK, payload:{
+        task
+    }
+})
 export const removeitem = (id) =>({
     type:REMOVEITEM, payload:{ id }
 })
