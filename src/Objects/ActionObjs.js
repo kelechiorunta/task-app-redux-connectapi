@@ -4,7 +4,7 @@ export const ADDTOLIST = 'ADDTOLIST'
 export const REMOVEITEM = 'REMOVEITEM'
 export const INITIATE = 'INITIATE'
 export const ADDBYTASK = 'ADDBYTASK'
-export const DELETEBYID = 'DELETEBYID'
+export const DELETEBYTASK = 'DELETEBYTASK'
 
 let nextid = 0;
 
@@ -29,8 +29,8 @@ export const addbytask = (task) => ({
     }
 })
 
-export const deletebyid = (task) => ({
-    type:DELETEBYID, payload:{ task }
+export const deletebytask = (task) => ({
+    type:DELETEBYTASK, payload:{ task }
 })
 
 export const removeitem = (id) =>({
