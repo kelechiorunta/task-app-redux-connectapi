@@ -19,11 +19,11 @@ function AppLayout({currentStateLength}) {
         <Header/>
         <AppCompletedList />
         <Heading p={4} w={{base: '96%', sm:'96%', md:'94%', lg:'90%'}} m='auto' textAlign={'center'}>{`${currentStateLength} Tasks left`}</Heading>
-        <Input type='text' p={4} value={updated_value} onChange={(e)=> setDisplayedVal(e.target.value)}/>
-        <Button colorScheme='blue' onClick={()=>dispatch(increment())}>Add Value</Button>
-        <Button colorScheme='blue' onClick={()=>dispatch(decrement())}>Decrease Value</Button>
-
         <AppAddToList />
+
+        {/* <Input type='text' p={4} value={updated_value} onChange={(e)=> setDisplayedVal(e.target.value)}/>
+        <Button colorScheme='blue' onClick={()=>dispatch(increment())}>Add Value</Button>
+        <Button colorScheme='blue' onClick={()=>dispatch(decrement())}>Decrease Value</Button> */}
     </Box>
   )
 }
