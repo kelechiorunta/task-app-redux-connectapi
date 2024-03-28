@@ -17,18 +17,19 @@ function AppAddToList({alltasks, selectedtask, addtolist}) {
     
   return (
     <div>
-        <Input type='text' placeholder="Enter Task Here" onChange={(e) => setInfo(e.target.value)} value={info} />
-        <Button onClick={handleAdd}>Add To List</Button>
+        <Flex gap={2}>
+            <Input ml={4} type='text' placeholder="Please Enter Task Here" onChange={(e) => setInfo(e.target.value)} value={info} />
+            <Button onClick={handleAdd}>Add To List</Button>
+        </Flex>
+        
         <UnorderedList>
-            {alltasks.map(i=>{
+            {alltasks.map((i, index)=>{
                 return (
-                        <ListItem key={`key${i.id}`} textAlign={'left'}>
-                            
+                        <ListItem border={'1px solid'} p={2} key={index} textAlign={'left'}>
                             <Flex h='30px'justifyContent={'space-between'} alignItems={'center'}>
                                 <Text>{i.content}</Text>
                                 <AppCheckComplete taskId={i.id}/>
                             </Flex>
-                            
                         </ListItem> 
                         
                         )})}
